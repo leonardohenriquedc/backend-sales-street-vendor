@@ -69,4 +69,12 @@ public class SaleDTO {
     public void setIdProduct(Long idProduct) {
         this.idProduct = idProduct;
     }
+
+    public Long getIdBank() {
+        return idBank;
+    }
+
+    public void setIdBank(Long idBank) {
+        this.idBank = idBank;
+    }
 }

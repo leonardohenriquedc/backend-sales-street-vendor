@@ -35,6 +35,10 @@ public class Sale {
     public Sale() {
     }
 
+    public void addProducts (Products products){
+        this.products.add(products);
+    }
+
     public Long getId() {
         return id;
     }

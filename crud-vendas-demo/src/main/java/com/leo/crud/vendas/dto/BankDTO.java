@@ -1,5 +1,6 @@
 package com.leo.crud.vendas.dto;
 
+import com.leo.crud.vendas.entities.Bank;
 import org.springframework.web.multipart.MultipartFile;
 
 public class BankDTO {
@@ -17,6 +18,13 @@ public class BankDTO {
         this.name = name;
         this.keyPix = keyPix;
         this.imgQrCode = imgQrCode;
+    }
+
+    public BankDTO(Bank bank){
+
+        id = bank.getId();
+        name = bank.getName();
+        keyPix = bank.getKeyPix();
     }
 
     public BankDTO() {
