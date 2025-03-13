@@ -6,7 +6,7 @@ import com.leo.crud.vendas.dto.SaleDTO;
 import com.leo.crud.vendas.entities.Bank;
 import com.leo.crud.vendas.entities.Products;
 import com.leo.crud.vendas.entities.Sale;
-import com.leo.crud.vendas.repositories.ProductsRepository;
+import com.leo.crud.vendas.exceptions.NotPossibleSave;
 import com.leo.crud.vendas.repositories.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,8 +30,12 @@ public class SaleService {
 
         sale.setQuantidade(saleDTO.getQuantidade());
         sale.setInitValue(saleDTO.getInitValue());
+        sale.setTotalValue(saleDTO.getInitValue());
+        sale.setDate(saleDTO.getDate());
+        sale.setTotalValue(saleDTO.getTotalValue());
 
-        ProductsDTO productsDTO = producsService.findById(saleDTO.getId());
+        ProductsDTO productsDTO = producsService.findById(saleDTO.getIdProduct());
+        products.setId(productsDTO.getId());
         products.setName(productsDTO.getName());
 
         BankDTO bankDTO = bankService.findById(saleDTO.getIdBank());
@@ -50,7 +54,7 @@ public class SaleService {
 
         } catch (Exception e) {
 
-            throw new RuntimeException(e);
+            throw new NotPossibleSave("Not possible save entity");
 
         }
 
