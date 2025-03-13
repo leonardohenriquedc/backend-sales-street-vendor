@@ -7,10 +7,12 @@ import com.leo.crud.vendas.repositories.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
-public class ProducsService {
+public class ProductsService {
 
     @Autowired
     ProductsRepository productsRepository;
@@ -27,5 +29,14 @@ public class ProducsService {
 
             throw new ResourceNotFound("Id not found");
         }
+    }
+
+    public List<ProductsDTO> getAll(){
+
+        List<Products> result = productsRepository.findAll();
+
+        List<ProductsDTO> productsDTOS = result.stream().map(x -> new ProductsDTO(x)).collect(Collectors.toUnmodifiableList());
+
+        return productsDTOS;
     }
 }

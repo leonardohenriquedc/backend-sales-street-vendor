@@ -18,7 +18,7 @@ public class SaleService {
     SaleRepository saleRepository;
 
     @Autowired
-    ProducsService producsService;
+    ProductsService productsService;
 
     @Autowired
     BankService bankService;
@@ -34,7 +34,7 @@ public class SaleService {
         sale.setDate(saleDTO.getDate());
         sale.setTotalValue(saleDTO.getTotalValue());
 
-        ProductsDTO productsDTO = producsService.findById(saleDTO.getIdProduct());
+        ProductsDTO productsDTO = productsService.findById(saleDTO.getIdProduct());
         products.setId(productsDTO.getId());
         products.setName(productsDTO.getName());
 
