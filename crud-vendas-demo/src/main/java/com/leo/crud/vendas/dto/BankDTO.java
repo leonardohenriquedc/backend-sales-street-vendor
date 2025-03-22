@@ -1,8 +1,10 @@
 package com.leo.crud.vendas.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.leo.crud.vendas.entities.Bank;
 import org.springframework.web.multipart.MultipartFile;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class BankDTO {
 
     private Long id;
@@ -11,9 +13,9 @@ public class BankDTO {
 
     private String keyPix;
 
-    private MultipartFile imgQrCode;
+    private byte[] imgQrCode;
 
-    public BankDTO(Long id, String name, String keyPix, MultipartFile imgQrCode) {
+    public BankDTO(Long id, String name, String keyPix, byte[] imgQrCode) {
         this.id = id;
         this.name = name;
         this.keyPix = keyPix;
@@ -25,6 +27,7 @@ public class BankDTO {
         id = bank.getId();
         name = bank.getName();
         keyPix = bank.getKeyPix();
+        imgQrCode = bank.getImgQrCode();
     }
 
     public BankDTO() {
@@ -54,11 +57,11 @@ public class BankDTO {
         this.keyPix = keyPix;
     }
 
-    public MultipartFile getImgQrCode() {
+    public byte[] getImgQrCode() {
         return imgQrCode;
     }
 
-    public void setImgQrCode(MultipartFile imgQrCode) {
+    public void setImgQrCode(byte[] imgQrCode) {
         this.imgQrCode = imgQrCode;
     }
 }

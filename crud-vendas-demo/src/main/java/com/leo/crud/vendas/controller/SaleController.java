@@ -20,5 +20,5 @@ public class SaleController {
         saleDTO = saleService.insert(saleDTO);
 
         return ResponseEntity.ok(saleDTO);
-    }
+    }   
 }

@@ -1,13 +1,19 @@
 package com.leo.crud.vendas.service;
 
 import com.leo.crud.vendas.dto.BankDTO;
+import com.leo.crud.vendas.dto.CreateBankDTO;
 import com.leo.crud.vendas.entities.Bank;
 import com.leo.crud.vendas.exceptions.ResourceNotFound;
 import com.leo.crud.vendas.repositories.BankRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.w3c.dom.stylesheets.LinkStyle;
 
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class BankService {
@@ -26,5 +32,34 @@ public class BankService {
 
             throw new ResourceNotFound("Id not found");
         }
+    }
+
+    public BankDTO save(CreateBankDTO dto) {
+
+        try {
+            Bank bank = new Bank();
+
+            byte[] image = dto.getImageQrCode().getBytes();
+
+            bank.setName(dto.getName());
+            bank.setKeyPix(dto.getKeyPix());
+            bank.setImgQrCode(image);
+
+            bank = bankRepository.save(bank);
+
+            return new BankDTO(bank);
+        }catch (IOException e){
+            throw new RuntimeException("Erro de IO");
+        }
+    }
+
+    public List<BankDTO> getAll(){
+        List<Bank> result = bankRepository.findAll();
+
+        List<BankDTO> bankDTOS = result.stream().map(bank -> new BankDTO(bank)).collect(Collectors.toList());
+
+        bankDTOS.stream().forEach(b-> b.setImgQrCode(null));
+
+        return bankDTOS;
     }
 }

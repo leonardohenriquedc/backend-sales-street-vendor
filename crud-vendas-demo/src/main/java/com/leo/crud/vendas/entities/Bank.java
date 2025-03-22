@@ -18,12 +18,12 @@ public class Bank {
     private String keyPix;
 
     @Lob
-    private Byte[] imgQrCode;
+    private byte[]  imgQrCode;
 
     @OneToMany(mappedBy = "bank")
     private List<Sale> sales = new ArrayList<>();
 
-    public Bank(Long id, String name, String keyPix, Byte[] imgQrCode) {
+    public Bank(Long id, String name, String keyPix, byte[] imgQrCode) {
         this.id = id;
         this.name = name;
         this.keyPix = keyPix;
@@ -57,11 +57,11 @@ public class Bank {
         this.keyPix = keyPix;
     }
 
-    public Byte[] getImgQrCode() {
+    public byte[] getImgQrCode() {
         return imgQrCode;
     }
 
-    public void setImgQrCode(Byte[] imgQrCode) {
+    public void setImgQrCode(byte[] imgQrCode) {
         this.imgQrCode = imgQrCode;
     }
 }
