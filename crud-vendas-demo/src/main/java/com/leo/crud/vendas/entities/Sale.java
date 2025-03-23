@@ -14,38 +14,30 @@ public class Sale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long quantidade;
+    private Integer amount;
 
-    private Double initValue;
+    private Double unitValue;
 
-    private Double totalValue;
-
-    private LocalDate date;
+    private LocalDate dateSale;
 
     @ManyToMany
     @JoinTable(name = "tb_products_sales",
-    joinColumns = @JoinColumn(name = "products_id"),
-    inverseJoinColumns = @JoinColumn(name = "sales_id"))
+    inverseJoinColumns = @JoinColumn(name = "product_id"),
+    joinColumns = @JoinColumn(name = "sale_id"))
     private List<Products> products = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "bank_id")
     private Bank bank;
 
-    public Sale(Long id, Long quantidade, Double initValue, LocalDate localDate) {
+    public Sale(Long id, Integer amount, Double unitValue, LocalDate localDate) {
         this.id = id;
-        this.quantidade = quantidade;
-        this.initValue = initValue;
-        this.date = localDate;
-
-        definedTotalValue();
+        this.amount = amount;
+        this.unitValue = unitValue;
+        this.dateSale = localDate;
     }
 
     public Sale() {
-    }
-
-    public void definedTotalValue(){
-        totalValue = quantidade * initValue;
     }
 
     public void addProducts (Products products){
@@ -60,20 +52,20 @@ public class Sale {
         this.id = id;
     }
 
-    public Long getQuantidade() {
-        return quantidade;
+    public Integer getAmount() {
+        return amount;
     }
 
-    public void setQuantidade(Long quantidade) {
-        this.quantidade = quantidade;
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 
-    public Double getInitValue() {
-        return initValue;
+    public Double getUnitValue() {
+        return unitValue;
     }
 
-    public void setInitValue(Double initValue) {
-        this.initValue = initValue;
+    public void setUnitValue(Double unitValue) {
+        this.unitValue = unitValue;
     }
 
     public List<Products> getProducts() {
@@ -92,19 +84,11 @@ public class Sale {
         this.bank = bank;
     }
 
-    public Double getTotalValue() {
-        return totalValue;
+    public LocalDate getDateSale() {
+        return dateSale;
     }
 
-    public void setTotalValue(Double totalValue) {
-        this.totalValue = totalValue;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setDateSale(LocalDate dateSale) {
+        this.dateSale = dateSale;
     }
 }

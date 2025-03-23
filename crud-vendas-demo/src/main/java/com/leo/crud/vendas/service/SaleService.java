@@ -2,14 +2,20 @@ package com.leo.crud.vendas.service;
 
 import com.leo.crud.vendas.dto.BankDTO;
 import com.leo.crud.vendas.dto.ProductsDTO;
-import com.leo.crud.vendas.dto.SaleDTO;
+import com.leo.crud.vendas.dto.SaleRequestInsertDTO;
+import com.leo.crud.vendas.dto.reports.ReportSalesDTO;
+import com.leo.crud.vendas.dto.reports.SaleReportDTO;
 import com.leo.crud.vendas.entities.Bank;
 import com.leo.crud.vendas.entities.Products;
 import com.leo.crud.vendas.entities.Sale;
 import com.leo.crud.vendas.exceptions.NotPossibleSave;
+import com.leo.crud.vendas.projections.SaleReportProjection;
 import com.leo.crud.vendas.repositories.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class SaleService {
@@ -23,22 +29,20 @@ public class SaleService {
     @Autowired
     BankService bankService;
 
-    public SaleDTO insert(SaleDTO saleDTO){
+    public SaleRequestInsertDTO insert(SaleRequestInsertDTO saleRequestInsertDTO){
         Sale sale = new Sale();
         Products products = new Products();
         Bank bank = new Bank();
 
-        sale.setQuantidade(saleDTO.getQuantidade());
-        sale.setInitValue(saleDTO.getInitValue());
-        sale.setTotalValue(saleDTO.getInitValue());
-        sale.setDate(saleDTO.getDate());
-        sale.setTotalValue(saleDTO.getTotalValue());
+        sale.setAmount(saleRequestInsertDTO.getAmount());
+        sale.setUnitValue(saleRequestInsertDTO.getInitValue());
+        sale.setDateSale(saleRequestInsertDTO.getDate());
 
-        ProductsDTO productsDTO = productsService.findById(saleDTO.getIdProduct());
+        ProductsDTO productsDTO = productsService.findById(saleRequestInsertDTO.getIdProduct());
         products.setId(productsDTO.getId());
         products.setName(productsDTO.getName());
 
-        BankDTO bankDTO = bankService.findById(saleDTO.getIdBank());
+        BankDTO bankDTO = bankService.findById(saleRequestInsertDTO.getIdBank());
         bank.setId(bankDTO.getId());
         bank.setName(bankDTO.getName());
         bank.setKeyPix(bankDTO.getKeyPix());
@@ -50,7 +54,7 @@ public class SaleService {
 
             sale = saleRepository.save(sale);
 
-            return new SaleDTO(sale);
+            return new SaleRequestInsertDTO(sale);
 
         } catch (Exception e) {
 
@@ -58,5 +62,26 @@ public class SaleService {
 
         }
 
+    }
+
+    public ReportSalesDTO reportSales(String initDateS, String finalDateS, String idProductS){
+
+        LocalDate initDate = LocalDate.parse(initDateS);
+
+        LocalDate finalDate = LocalDate.parse(finalDateS);
+
+        Long idProduct = Long.parseLong(idProductS);
+
+        System.out.println("Este são as datas e id: " + initDate + ", " + finalDate + ", " + idProduct);
+
+        List<SaleReportProjection> result = saleRepository.searchReportSales(finalDate, initDate, idProduct);
+
+        System.out.println(result.toString());
+
+        result.forEach(x -> System.out.println("Project" + x.toString()));
+
+        List<SaleReportDTO> saleReportDTOS = result.stream().map(SaleReportDTO::new).toList();
+
+        return new ReportSalesDTO(saleReportDTOS);
     }
 }

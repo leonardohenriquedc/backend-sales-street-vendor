@@ -18,6 +18,7 @@ public class Bank {
     private String keyPix;
 
     @Lob
+    @Column(columnDefinition = "BLOB")
     private byte[]  imgQrCode;
 
     @OneToMany(mappedBy = "bank")

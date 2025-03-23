@@ -6,12 +6,12 @@ import jakarta.validation.constraints.Positive;
 
 import java.time.LocalDate;
 
-public class SaleDTO {
+public class SaleRequestInsertDTO {
 
     private Long id;
 
     @Positive(message = "O valor do produto deve ser positivo")
-    private Long quantidade;
+    private Integer amount;
 
     @Positive(message = "O valor do produto deve ser positivo")
     private Double initValue;
@@ -22,31 +22,27 @@ public class SaleDTO {
     @NotNull(message = "Não pode ser vazio")
     private Long idBank;
 
-    private Double totalValue;
-
     private LocalDate date;
 
-    public SaleDTO(Long id, Long quantidade, Double initValue, Long idProduct, Long idBank, Double totalValue, LocalDate localDate) {
+    public SaleRequestInsertDTO(Long id, Integer amount, Double initValue, Long idProduct, Long idBank, LocalDate localDate) {
         this.id = id;
-        this.quantidade = quantidade;
+        this.amount = amount;
         this.initValue = initValue;
         this.idProduct = idProduct;
         this.idBank = idBank;
-        this.totalValue = totalValue;
         this.date = localDate;
     }
 
-    public SaleDTO(Sale sale){
+    public SaleRequestInsertDTO(Sale sale){
         id = sale.getId();
-        quantidade = sale.getQuantidade();
-        initValue = sale.getInitValue();
+        amount = sale.getAmount();
+        initValue = sale.getUnitValue();
         idProduct = sale.getProducts().getFirst().getId();
         idBank = sale.getBank().getId();
-        totalValue = sale.getTotalValue();
-        date = sale.getDate();
+        date = sale.getDateSale();
     }
 
-    public SaleDTO() {
+    public SaleRequestInsertDTO() {
     }
 
     public Long getId() {
@@ -57,12 +53,12 @@ public class SaleDTO {
         this.id = id;
     }
 
-    public Long getQuantidade() {
-        return quantidade;
+    public Integer getAmount() {
+        return amount;
     }
 
-    public void setQuantidade(Long quantidade) {
-        this.quantidade = quantidade;
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 
     public Double getInitValue() {
@@ -87,14 +83,6 @@ public class SaleDTO {
 
     public void setIdBank(Long idBank) {
         this.idBank = idBank;
-    }
-
-    public Double getTotalValue() {
-        return totalValue;
-    }
-
-    public void setTotalValue(Double totalValue) {
-        this.totalValue = totalValue;
     }
 
     public LocalDate getDate() {
