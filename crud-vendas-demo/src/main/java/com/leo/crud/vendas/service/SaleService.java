@@ -13,6 +13,7 @@ import com.leo.crud.vendas.projections.SaleReportProjection;
 import com.leo.crud.vendas.repositories.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -29,6 +30,7 @@ public class SaleService {
     @Autowired
     BankService bankService;
 
+    @Transactional
     public SaleRequestInsertDTO insert(SaleRequestInsertDTO saleRequestInsertDTO){
         Sale sale = new Sale();
         Products products = new Products();
@@ -64,6 +66,7 @@ public class SaleService {
 
     }
 
+    @Transactional(readOnly = true)
     public ReportSalesDTO reportSales(String initDateS, String finalDateS, String idProductS){
 
         LocalDate initDate = LocalDate.parse(initDateS);
