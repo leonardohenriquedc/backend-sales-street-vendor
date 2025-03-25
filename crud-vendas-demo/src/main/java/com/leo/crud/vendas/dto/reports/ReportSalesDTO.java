@@ -1,24 +1,27 @@
 package com.leo.crud.vendas.dto.reports;
 
-import java.util.ArrayList;
+import com.leo.crud.vendas.projections.SaleReportProjectionRecord;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.List;
 
 public class ReportSalesDTO {
 
-    private List<SaleReportDTO> saleReport = new ArrayList<>();
+    @Autowired
+    private List<SaleReportProjectionRecord> saleReport;
 
-    public ReportSalesDTO(List<SaleReportDTO> saleReport) {
+    public ReportSalesDTO(List<SaleReportProjectionRecord> saleReport) {
         this.saleReport = saleReport;
     }
 
     public ReportSalesDTO(){
     }
 
-    public List<SaleReportDTO> getSaleReport() {
+    public List<SaleReportProjectionRecord> getSaleReport() {
         return saleReport;
     }
 
-    public void setSaleReport(List<SaleReportDTO> saleReport) {
+    public void setSaleReport(List<SaleReportProjectionRecord> saleReport) {
         this.saleReport = saleReport;
     }
 }

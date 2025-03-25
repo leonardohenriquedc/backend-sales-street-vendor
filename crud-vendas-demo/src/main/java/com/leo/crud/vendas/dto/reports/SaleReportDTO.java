@@ -1,8 +1,6 @@
 package com.leo.crud.vendas.dto.reports;
 
-import com.leo.crud.vendas.projections.SaleReportProjection;
-
-public class SaleReportDTO {
+public class SaleReportDTO implements SaleReportProjection{
 
     private String product;
 
@@ -10,27 +8,27 @@ public class SaleReportDTO {
 
     private Double unitValue;
 
-    private Double totalValue;
+    private Double total;
 
-    public SaleReportDTO(String product, Integer amount, Double unitValue, Double totalValue) {
+    public SaleReportDTO(String product, Integer amount, Double unitValue, Double total) {
         this.product = product;
         this.amount = amount;
         this.unitValue = unitValue;
-        this.totalValue = totalValue;
+        this.total = total;
     }
 
     public SaleReportDTO(SaleReportProjection saleReportProjection){
         product = saleReportProjection.getProduct();
         amount = saleReportProjection.getAmount();
         unitValue = saleReportProjection.getUnitValue();
-        totalValue = saleReportProjection.getTotal();
+        total = saleReportProjection.getTotal();
     }
 
     public SaleReportDTO(){
     }
 
-    public Double getTotalValue(){
-        return totalValue;
+    public Double getTotal(){
+        return total;
     }
 
     public String getProduct() {
@@ -58,6 +56,6 @@ public class SaleReportDTO {
     }
 
     public void setTotalValue(Double unitValue, Integer quantidade) {
-        this.totalValue = unitValue * quantidade;
+        this.total = unitValue * quantidade;
     }
 }
