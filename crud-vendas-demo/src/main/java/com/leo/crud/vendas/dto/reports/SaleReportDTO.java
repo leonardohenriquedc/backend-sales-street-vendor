@@ -1,6 +1,8 @@
 package com.leo.crud.vendas.dto.reports;
 
-public class SaleReportDTO implements SaleReportProjection{
+import com.leo.crud.vendas.projections.SaleReportProjectionRecord;
+
+public class SaleReportDTO {
 
     private String product;
 
@@ -17,11 +19,11 @@ public class SaleReportDTO implements SaleReportProjection{
         this.total = total;
     }
 
-    public SaleReportDTO(SaleReportProjection saleReportProjection){
-        product = saleReportProjection.getProduct();
-        amount = saleReportProjection.getAmount();
-        unitValue = saleReportProjection.getUnitValue();
-        total = saleReportProjection.getTotal();
+    public SaleReportDTO(SaleReportProjectionRecord saleReportProjection){
+        product = saleReportProjection.product();
+        amount = saleReportProjection.amount();
+        unitValue = saleReportProjection.unitValue();
+        total = saleReportProjection.total();
     }
 
     public SaleReportDTO(){

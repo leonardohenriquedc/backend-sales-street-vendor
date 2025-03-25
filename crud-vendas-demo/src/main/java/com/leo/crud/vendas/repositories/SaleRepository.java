@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface SaleRepository extends JpaRepository<Sale, Long> {
 
-    @Query(nativeQuery = true, value = "select tb_products.name as Product, " +
+    @Query(nativeQuery = true, value = "select tb_products.name as product, " +
             "SUM(tb_sales.amount) as amount, " +
             "tb_sales.unit_value as unitValue, " +
             "ROUND(SUM(tb_sales.amount) * tb_sales.unit_value, 2) as total " +
