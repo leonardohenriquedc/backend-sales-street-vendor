@@ -6,13 +6,13 @@ public class SaleReportDTO {
 
     private String product;
 
-    private Integer amount;
+    private Long amount;
 
     private Double unitValue;
 
     private Double total;
 
-    public SaleReportDTO(String product, Integer amount, Double unitValue, Double total) {
+    public SaleReportDTO(String product, Long amount, Double unitValue, Double total) {
         this.product = product;
         this.amount = amount;
         this.unitValue = unitValue;
@@ -41,11 +41,11 @@ public class SaleReportDTO {
         this.product = product;
     }
 
-    public Integer getAmount() {
+    public Long getAmount() {
         return amount;
     }
 
-    public void setAmount(Integer amount) {
+    public void setAmount(Long amount) {
         this.amount = amount;
     }
 

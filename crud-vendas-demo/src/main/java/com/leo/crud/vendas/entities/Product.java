@@ -1,5 +1,6 @@
 package com.leo.crud.vendas.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "tb_products")
-public class Products {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,14 +17,15 @@ public class Products {
     private String name;
 
     @ManyToMany(mappedBy = "products")
+    @JsonBackReference
     private List<Sale> sales = new ArrayList<>();
 
-    public Products(Long id, String name) {
+    public Product(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Products() {
+    public Product() {
     }
 
     public Long getId() {

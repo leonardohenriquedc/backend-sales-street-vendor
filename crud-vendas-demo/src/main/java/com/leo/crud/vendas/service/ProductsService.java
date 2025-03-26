@@ -1,7 +1,7 @@
 package com.leo.crud.vendas.service;
 
 import com.leo.crud.vendas.dto.ProductsDTO;
-import com.leo.crud.vendas.entities.Products;
+import com.leo.crud.vendas.entities.Product;
 import com.leo.crud.vendas.exceptions.ResourceNotFound;
 import com.leo.crud.vendas.repositories.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class ProductsService {
 
     public ProductsDTO findById(Long id){
 
-        Optional<Products> existsId = productsRepository.findById(id);
+        Optional<Product> existsId = productsRepository.findById(id);
 
         if(existsId.isPresent()){
 
@@ -33,7 +33,7 @@ public class ProductsService {
 
     public List<ProductsDTO> getAll(){
 
-        List<Products> result = productsRepository.findAll();
+        List<Product> result = productsRepository.findAll();
 
         List<ProductsDTO> productsDTOS = result.stream().map(x -> new ProductsDTO(x)).collect(Collectors.toUnmodifiableList());
 

@@ -1,5 +1,6 @@
 package com.leo.crud.vendas.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -22,9 +23,10 @@ public class Sale {
 
     @ManyToMany
     @JoinTable(name = "tb_products_sales",
-    inverseJoinColumns = @JoinColumn(name = "product_id"),
-    joinColumns = @JoinColumn(name = "sale_id"))
-    private List<Products> products = new ArrayList<>();
+    joinColumns = @JoinColumn(name = "sale_id"),
+    inverseJoinColumns = @JoinColumn(name = "product_id"))
+    @JsonManagedReference
+    private List<Product> products = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "bank_id")
@@ -40,8 +42,8 @@ public class Sale {
     public Sale() {
     }
 
-    public void addProducts (Products products){
-        this.products.add(products);
+    public void addProducts (Product product){
+        this.products.add(product);
     }
 
     public Long getId() {
@@ -68,11 +70,11 @@ public class Sale {
         this.unitValue = unitValue;
     }
 
-    public List<Products> getProducts() {
+    public List<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Products> products) {
+    public void setProducts(List<Product> products) {
         this.products = products;
     }
 

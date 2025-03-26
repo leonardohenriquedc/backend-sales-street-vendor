@@ -2,6 +2,7 @@ package com.leo.crud.vendas.controller;
 
 import com.leo.crud.vendas.dto.SaleRequestInsertDTO;
 import com.leo.crud.vendas.dto.reports.ReportSalesDTO;
+import com.leo.crud.vendas.entities.Sale;
 import com.leo.crud.vendas.service.SaleService;
 import jakarta.validation.Valid;
 import org.apache.coyote.Response;
@@ -10,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/sale")
@@ -35,5 +37,10 @@ public class SaleController {
         ReportSalesDTO reportSalesDTO = saleService.reportSales(initDate, finalDate, productId);
 
         return ResponseEntity.ok(reportSalesDTO);
+    }
+
+    @GetMapping(value = "/getall")
+    public ResponseEntity<List<Sale>> getAll (){
+        return ResponseEntity.ok(saleService.getAllSales());
     }
 }

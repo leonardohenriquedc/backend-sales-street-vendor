@@ -4,9 +4,11 @@ import com.leo.crud.vendas.dto.BankDTO;
 import com.leo.crud.vendas.dto.ProductsDTO;
 import com.leo.crud.vendas.dto.SaleRequestInsertDTO;
 import com.leo.crud.vendas.dto.reports.ReportSalesDTO;
+import com.leo.crud.vendas.dto.reports.SaleReportDTO;
 import com.leo.crud.vendas.entities.Bank;
-import com.leo.crud.vendas.entities.Products;
+import com.leo.crud.vendas.entities.Product;
 import com.leo.crud.vendas.entities.Sale;
+import com.leo.crud.vendas.exceptions.NotExistsResources;
 import com.leo.crud.vendas.exceptions.NotPossibleSave;
 import com.leo.crud.vendas.projections.SaleReportProjectionRecord;
 import com.leo.crud.vendas.repositories.SaleRepository;
@@ -32,7 +34,7 @@ public class SaleService {
     @Transactional
     public SaleRequestInsertDTO insert(SaleRequestInsertDTO saleRequestInsertDTO){
         Sale sale = new Sale();
-        Products products = new Products();
+        Product product = new Product();
         Bank bank = new Bank();
 
         sale.setAmount(saleRequestInsertDTO.getAmount());
@@ -40,15 +42,15 @@ public class SaleService {
         sale.setDateSale(saleRequestInsertDTO.getDate());
 
         ProductsDTO productsDTO = productsService.findById(saleRequestInsertDTO.getIdProduct());
-        products.setId(productsDTO.getId());
-        products.setName(productsDTO.getName());
+        product.setId(productsDTO.getId());
+        product.setName(productsDTO.getName());
 
         BankDTO bankDTO = bankService.findById(saleRequestInsertDTO.getIdBank());
         bank.setId(bankDTO.getId());
         bank.setName(bankDTO.getName());
         bank.setKeyPix(bankDTO.getKeyPix());
 
-        sale.addProducts(products);
+        sale.addProducts(product);
         sale.setBank(bank);
 
         try{
@@ -80,6 +82,14 @@ public class SaleService {
 
         System.out.println(result.toString());
 
+        if(result.isEmpty()) throw new NotExistsResources();
+
         return new ReportSalesDTO(result);
+    }
+
+    public List<Sale> getAllSales (){
+        List<Sale> result = saleRepository.findAll();
+
+        return result;
     }
 }
