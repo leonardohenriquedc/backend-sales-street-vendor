@@ -2,6 +2,9 @@ package com.leo.crud.vendas.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "tb_products")
 public class Products {
@@ -11,6 +14,9 @@ public class Products {
     private Long id;
 
     private String name;
+
+    @ManyToMany(mappedBy = "products")
+    private List<Sale> sales = new ArrayList<>();
 
     public Products(Long id, String name) {
         this.id = id;
@@ -34,6 +40,14 @@ public class Products {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Sale> getSales() {
+        return sales;
+    }
+
+    public void setSales(List<Sale> sales) {
+        this.sales = sales;
     }
 
     @Override

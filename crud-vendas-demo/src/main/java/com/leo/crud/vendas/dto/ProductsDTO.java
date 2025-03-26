@@ -1,6 +1,6 @@
 package com.leo.crud.vendas.dto;
 
-import com.leo.crud.vendas.entities.Products;
+import com.leo.crud.vendas.entities.Product;
 
 public class ProductsDTO {
 
@@ -13,11 +13,11 @@ public class ProductsDTO {
         this.name = name;
     }
 
-    public ProductsDTO(Products products){
+    public ProductsDTO(Product product){
 
-        id = products.getId();
+        id = product.getId();
 
-        name = products.getName();
+        name = product.getName();
     }
 
     public ProductsDTO() {
