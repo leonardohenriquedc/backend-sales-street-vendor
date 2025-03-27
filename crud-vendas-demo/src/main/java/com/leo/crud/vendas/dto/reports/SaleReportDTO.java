@@ -2,17 +2,19 @@ package com.leo.crud.vendas.dto.reports;
 
 import com.leo.crud.vendas.projections.SaleReportProjectionRecord;
 
+import java.math.BigDecimal;
+
 public class SaleReportDTO {
 
     private String product;
 
     private Long amount;
 
-    private Double unitValue;
+    private BigDecimal unitValue;
 
-    private Double total;
+    private BigDecimal total;
 
-    public SaleReportDTO(String product, Long amount, Double unitValue, Double total) {
+    public SaleReportDTO(String product, Long amount, BigDecimal unitValue, BigDecimal total) {
         this.product = product;
         this.amount = amount;
         this.unitValue = unitValue;
@@ -29,7 +31,7 @@ public class SaleReportDTO {
     public SaleReportDTO(){
     }
 
-    public Double getTotal(){
+    public BigDecimal getTotal(){
         return total;
     }
 
@@ -49,15 +51,15 @@ public class SaleReportDTO {
         this.amount = amount;
     }
 
-    public Double getUnitValue() {
+    public BigDecimal getUnitValue() {
         return unitValue;
     }
 
-    public void setUnitValue(Double unitValue) {
+    public void setUnitValue(BigDecimal unitValue) {
         this.unitValue = unitValue;
     }
 
-    public void setTotalValue(Double unitValue, Integer quantidade) {
-        this.total = unitValue * quantidade;
+    public void setTotalValue(BigDecimal unitValue, Integer quantidade) {
+        this.total = unitValue.multiply(new BigDecimal(quantidade));
     }
 }
