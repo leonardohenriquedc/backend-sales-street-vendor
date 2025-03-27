@@ -7,6 +7,7 @@ import com.leo.crud.vendas.service.SaleService;
 import jakarta.validation.Valid;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,15 +30,18 @@ public class SaleController {
 
     @PostMapping(value = "/reportsales")
     public ResponseEntity<ReportSalesDTO> reportSales(
-            @RequestParam(name = "initDate") String initDate,
-            @RequestParam(name = "finalDate") String finalDate,
-            @RequestParam(name = "productId") String productId
-    ){
+            @RequestParam(name = "initDate")
+            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate initDate,
 
-        ReportSalesDTO reportSalesDTO = saleService.reportSales(initDate, finalDate, productId);
+            @RequestParam(name = "finalDate")
+            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate,
 
-        return ResponseEntity.ok(reportSalesDTO);
+            @RequestParam(name = "productId") Long productId
+    ) {
+        ReportSalesDTO report = saleService.reportSales(initDate, finalDate, productId);
+        return ResponseEntity.ok(report);
     }
+
 
     @GetMapping(value = "/getall")
     public ResponseEntity<List<Sale>> getAll (){

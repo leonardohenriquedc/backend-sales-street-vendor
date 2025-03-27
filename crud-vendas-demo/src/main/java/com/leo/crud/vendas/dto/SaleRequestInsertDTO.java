@@ -4,6 +4,7 @@ import com.leo.crud.vendas.entities.Sale;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class SaleRequestInsertDTO {
@@ -14,7 +15,7 @@ public class SaleRequestInsertDTO {
     private Integer amount;
 
     @Positive(message = "O valor do produto deve ser positivo")
-    private Double initValue;
+    private BigDecimal initValue;
 
     @NotNull(message = "Não pode ser vazio")
     private Long idProduct;
@@ -24,7 +25,7 @@ public class SaleRequestInsertDTO {
 
     private LocalDate date;
 
-    public SaleRequestInsertDTO(Long id, Integer amount, Double initValue, Long idProduct, Long idBank, LocalDate localDate) {
+    public SaleRequestInsertDTO(Long id, Integer amount, BigDecimal initValue, Long idProduct, Long idBank, LocalDate localDate) {
         this.id = id;
         this.amount = amount;
         this.initValue = initValue;
@@ -61,11 +62,11 @@ public class SaleRequestInsertDTO {
         this.amount = amount;
     }
 
-    public Double getInitValue() {
+    public BigDecimal getInitValue() {
         return initValue;
     }
 
-    public void setInitValue(Double initValue) {
+    public void setInitValue(BigDecimal initValue) {
         this.initValue = initValue;
     }
 

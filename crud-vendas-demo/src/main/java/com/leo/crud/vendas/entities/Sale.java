@@ -3,6 +3,7 @@ package com.leo.crud.vendas.entities;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ public class Sale {
 
     private Integer amount;
 
-    private Double unitValue;
+    private BigDecimal unitValue;
 
     private LocalDate dateSale;
 
@@ -32,7 +33,7 @@ public class Sale {
     @JoinColumn(name = "bank_id")
     private Bank bank;
 
-    public Sale(Long id, Integer amount, Double unitValue, LocalDate localDate) {
+    public Sale(Long id, Integer amount, BigDecimal unitValue, LocalDate localDate) {
         this.id = id;
         this.amount = amount;
         this.unitValue = unitValue;
@@ -62,11 +63,11 @@ public class Sale {
         this.amount = amount;
     }
 
-    public Double getUnitValue() {
+    public BigDecimal getUnitValue() {
         return unitValue;
     }
 
-    public void setUnitValue(Double unitValue) {
+    public void setUnitValue(BigDecimal unitValue) {
         this.unitValue = unitValue;
     }
 

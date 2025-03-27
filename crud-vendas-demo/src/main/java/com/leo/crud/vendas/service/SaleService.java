@@ -68,24 +68,29 @@ public class SaleService {
     }
 
     @Transactional(readOnly = true)
-    public ReportSalesDTO reportSales(String initDateS, String finalDateS, String idProductS){
+    public ReportSalesDTO reportSales(LocalDate initDate, LocalDate finalDate, Long idProduct) {
 
-        LocalDate initDate = LocalDate.parse(initDateS);
+        if (initDate == null || finalDate == null || idProduct == null) {
+            throw new IllegalArgumentException("Parâmetros não podem ser nulos!");
+        }
 
-        LocalDate finalDate = LocalDate.parse(finalDateS);
-        Long idProduct = Long.parseLong(idProductS);
+        if (initDate.isAfter(finalDate)) {
+            throw new IllegalArgumentException("A data inicial não pode ser maior que a data final!");
+        }
 
+        System.out.println("Estas são as datas e id: " + initDate + ", " + finalDate + ", " + idProduct);
 
-        System.out.println("Este são as datas e id: " + initDate + ", " + finalDate + ", " + idProduct);
-
-        List<SaleReportProjectionRecord> result = saleRepository.searchReportSales(finalDate, initDate, idProduct);
+        List<SaleReportProjectionRecord> result = saleRepository.searchReportSales(initDate, finalDate, idProduct);
 
         System.out.println(result.toString());
 
-        if(result.isEmpty()) throw new NotExistsResources();
+        if (result.isEmpty()) {
+            throw new NotExistsResources();
+        }
 
         return new ReportSalesDTO(result);
     }
+
 
     public List<Sale> getAllSales (){
         List<Sale> result = saleRepository.findAll();
