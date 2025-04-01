@@ -1,6 +1,8 @@
 package com.leo.crud.vendas.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.leo.crud.vendas.entities.Sale;
+import com.leo.crud.vendas.validations.constraints.NotRetroactiveDate;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
@@ -23,6 +25,7 @@ public class SaleRequestInsertDTO {
     @NotNull(message = "Não pode ser vazio")
     private Long idBank;
 
+    @NotRetroactiveDate(message = "A data não pode ser retroativa")
     private LocalDate date;
 
     public SaleRequestInsertDTO(Long id, Integer amount, BigDecimal initValue, Long idProduct, Long idBank, LocalDate localDate) {
