@@ -90,11 +90,4 @@ public class SaleService {
 
         return new ReportSalesDTO(result);
     }
-
-
-    public List<Sale> getAllSales (){
-        List<Sale> result = saleRepository.findAll();
-
-        return result;
-    }
 }

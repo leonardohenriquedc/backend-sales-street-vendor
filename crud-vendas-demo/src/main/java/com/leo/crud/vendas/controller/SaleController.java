@@ -42,9 +42,4 @@ public class SaleController {
         return ResponseEntity.ok(report);
     }
 
-
-    @GetMapping(value = "/getall")
-    public ResponseEntity<List<Sale>> getAll (){
-        return ResponseEntity.ok(saleService.getAllSales());
-    }
 }
