@@ -36,8 +36,6 @@ public class ControllerAdivice {
 
         HttpStatus status = HttpStatus.BAD_REQUEST;
 
-
-
         ParameterErrors parameterErrors = new ParameterErrors(
                 Instant.now(),
                 status.value(),
