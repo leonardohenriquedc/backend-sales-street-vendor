@@ -56,9 +56,9 @@ public class BankService {
     public List<BankDTO> getAll(){
         List<Bank> result = bankRepository.findAll();
 
-        List<BankDTO> bankDTOS = result.stream().map(bank -> new BankDTO(bank)).collect(Collectors.toList());
+        List<BankDTO> bankDTOS = result.stream().map(BankDTO::new).collect(Collectors.toList());
 
-        bankDTOS.stream().forEach(b-> b.setImgQrCode(null));
+        bankDTOS.forEach(b-> b.setImgQrCode(null));
 
         return bankDTOS;
     }

@@ -1,5 +1,6 @@
 package com.leo.crud.vendas.controller;
 
+import com.leo.crud.vendas.dto.ResponseNewSaleDTO;
 import com.leo.crud.vendas.dto.SaleRequestInsertDTO;
 import com.leo.crud.vendas.dto.reports.ReportSalesDTO;
 import com.leo.crud.vendas.entities.Sale;
@@ -42,4 +43,8 @@ public class SaleController {
         return ResponseEntity.ok(report);
     }
 
+    @GetMapping(value = "/newsale")
+    public ResponseEntity<ResponseNewSaleDTO> newSale(){
+        return ResponseEntity.ok(saleService.newSale());
+    }
 }

@@ -2,6 +2,7 @@ package com.leo.crud.vendas.service;
 
 import com.leo.crud.vendas.dto.BankDTO;
 import com.leo.crud.vendas.dto.ProductsDTO;
+import com.leo.crud.vendas.dto.ResponseNewSaleDTO;
 import com.leo.crud.vendas.dto.SaleRequestInsertDTO;
 import com.leo.crud.vendas.dto.reports.ReportSalesDTO;
 import com.leo.crud.vendas.dto.reports.SaleReportDTO;
@@ -89,5 +90,13 @@ public class SaleService {
         }
 
         return new ReportSalesDTO(result);
+    }
+
+    public ResponseNewSaleDTO newSale(){
+        List<BankDTO> banks = bankService.getAll();
+
+        List<ProductsDTO> products = productsService.getAll();
+
+        return new ResponseNewSaleDTO(banks, products);
     }
 }

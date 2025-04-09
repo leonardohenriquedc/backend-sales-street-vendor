@@ -62,4 +62,18 @@ public class ControllerAdivice {
 
         return ResponseEntity.status(status).body(parameterErrors);
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<CustomError> illegalArugment(IllegalArgumentException exception, HttpServletRequest request) {
+
+        HttpStatus status = HttpStatus.NOT_ACCEPTABLE;
+
+        ParameterErrors parameterErrors = new ParameterErrors(
+                Instant.now(),
+                status.value(),
+                exception.getMessage(),
+                request.getRequestURI());
+
+        return ResponseEntity.status(status).body(parameterErrors);
+    }
 }
