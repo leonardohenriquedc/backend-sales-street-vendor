@@ -1,6 +1,10 @@
 INSERT INTO tb_banks(name, key_pix) VALUES ('Itau', 'wi4qgb0g4qgq950gqrbneqbbf');
+INSERT INTO tb_banks(name, key_pix) VALUES ('Santander', 'wi4qgb0g4qgq950gqrbneqbbf');
+INSERT INTO tb_banks(name, key_pix) VALUES ('Inter', 'wi4qgb0g4qgq950gqrbneqbbf');
 
 INSERT INTO tb_products(name) VALUES ('Palha Italiana');
+INSERT INTO tb_products(name) VALUES ('Palha Mexicana');
+INSERT INTO tb_products(name) VALUES ('Brigadeiro');
 
 INSERT INTO tb_sales (amount, unit_value, date_sale, bank_id) VALUES (5, 10.50, '2024-03-01', 1);
 INSERT INTO tb_sales (amount, unit_value, date_sale, bank_id) VALUES (2, 10.50, '2024-03-02', 1);
