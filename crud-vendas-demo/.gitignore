@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### MODELAGEM DO SISTEMA ###
+mer database.mwb
+mer database.mwb.bak
