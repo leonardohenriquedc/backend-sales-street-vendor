@@ -16,35 +16,34 @@ public class Sale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Integer amount;
+    @Column(unique = true, nullable = false)
+    private String externalId;
 
-    private BigDecimal unitValue;
+    private Integer amountProducts;
+
+    private BigDecimal totalPrice;
 
     private LocalDate dateSale;
-
-    @ManyToMany
-    @JoinTable(name = "tb_products_sales",
-    joinColumns = @JoinColumn(name = "sale_id"),
-    inverseJoinColumns = @JoinColumn(name = "product_id"))
-    @JsonManagedReference
-    private List<Product> products = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "bank_id")
     private Bank bank;
 
-    public Sale(Long id, Integer amount, BigDecimal unitValue, LocalDate localDate) {
+    @OneToOne
+    @JoinColumn(name = "payment_method_id", referencedColumnName = "id")
+    private PaymentMethod paymentMethod;
+
+    @ManyToMany(mappedBy = "sales")
+    private List<User> users = new ArrayList<>();
+
+    public Sale(Long id, Integer amountProducts, BigDecimal totalPrice, LocalDate localDate) {
         this.id = id;
-        this.amount = amount;
-        this.unitValue = unitValue;
+        this.amountProducts = amountProducts;
+        this.totalPrice = totalPrice;
         this.dateSale = localDate;
     }
 
     public Sale() {
-    }
-
-    public void addProducts (Product product){
-        this.products.add(product);
     }
 
     public Long getId() {
@@ -55,28 +54,20 @@ public class Sale {
         this.id = id;
     }
 
-    public Integer getAmount() {
-        return amount;
+    public Integer getAmountProducts() {
+        return amountProducts;
     }
 
-    public void setAmount(Integer amount) {
-        this.amount = amount;
+    public void setAmountProducts(Integer amountProducts) {
+        this.amountProducts = amountProducts;
     }
 
-    public BigDecimal getUnitValue() {
-        return unitValue;
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setUnitValue(BigDecimal unitValue) {
-        this.unitValue = unitValue;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public Bank getBank() {

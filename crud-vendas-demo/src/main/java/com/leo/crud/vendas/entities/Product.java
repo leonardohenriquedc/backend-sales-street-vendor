@@ -3,6 +3,7 @@ package com.leo.crud.vendas.entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,16 +17,18 @@ public class Product {
 
     private String name;
 
-    @ManyToMany(mappedBy = "products")
-    @JsonBackReference
-    private List<Sale> sales = new ArrayList<>();
+    private BigDecimal price;
 
-    public Product(Long id, String name) {
+    @ManyToMany(mappedBy = "products")
+    private List<User> users = new ArrayList<>();
+
+    @OneToOne(mappedBy = "products")
+    private AmountProductStock amountProductStock;
+
+    public Product(Long id, String name, BigDecimal price) {
         this.id = id;
         this.name = name;
-    }
-
-    public Product() {
+        this.price = price;
     }
 
     public Long getId() {
@@ -44,19 +47,27 @@ public class Product {
         this.name = name;
     }
 
-    public List<Sale> getSales() {
-        return sales;
+    public BigDecimal getPrice() {
+        return price;
     }
 
-    public void setSales(List<Sale> sales) {
-        this.sales = sales;
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
-    @Override
-    public String toString() {
-        return "Products{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    public AmountProductStock getAmountProductStock() {
+        return amountProductStock;
+    }
+
+    public void setAmountProductStock(AmountProductStock amountProductStock) {
+        this.amountProductStock = amountProductStock;
     }
 }

@@ -24,6 +24,9 @@ public class Bank {
     @OneToMany(mappedBy = "bank")
     private List<Sale> sales = new ArrayList<>();
 
+    @ManyToMany(mappedBy = "banks")
+    private List<User> users = new ArrayList<>();
+
     public Bank(Long id, String name, String keyPix, byte[] imgQrCode) {
         this.id = id;
         this.name = name;
@@ -64,5 +67,21 @@ public class Bank {
 
     public void setImgQrCode(byte[] imgQrCode) {
         this.imgQrCode = imgQrCode;
+    }
+
+    public List<Sale> getSales() {
+        return sales;
+    }
+
+    public void setSales(List<Sale> sales) {
+        this.sales = sales;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }
