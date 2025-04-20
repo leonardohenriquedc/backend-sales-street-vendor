@@ -1,16 +1,12 @@
 package com.leo.crud.vendas.service;
 
-import com.leo.crud.vendas.dto.BankDTO;
-import com.leo.crud.vendas.dto.CreateBankDTO;
 import com.leo.crud.vendas.entities.Bank;
 import com.leo.crud.vendas.exceptions.ResourceNotFound;
 import com.leo.crud.vendas.repositories.BankRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
