@@ -13,6 +13,7 @@ import java.util.List;
 @Repository
 public interface SaleRepository extends JpaRepository<Sale, Long> {
 
+    @Deprecated
     @Query(nativeQuery = true, value = "select tb_products.name as product, " +
             "SUM(tb_sales.amount) as amount, " +
             "tb_sales.unit_value as unitValue, " +
