@@ -13,6 +13,9 @@ public class Bank {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true, nullable = false)
+    private String externalId;
+
     private String name;
 
     private String keyPix;
@@ -83,5 +86,13 @@ public class Bank {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public String getExternalId() {
+        return externalId;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
     }
 }

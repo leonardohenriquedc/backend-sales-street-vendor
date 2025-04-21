@@ -1,5 +1,6 @@
 package com.leo.crud.vendas.controller;
 
+import com.leo.crud.vendas.dto.responses.persistence.ProductPersistenceResponseDTO;
 import com.leo.crud.vendas.service.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,7 @@ public class ProductController {
     ProductsService productsService;
 
     @GetMapping
-    public ResponseEntity<List<ProductsDTO>> getAll(){
+    public ResponseEntity<List<ProductPersistenceResponseDTO>> getAll(){
 
         return ResponseEntity.ok(productsService.getAll());
     }

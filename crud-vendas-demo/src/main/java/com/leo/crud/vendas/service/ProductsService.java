@@ -1,5 +1,7 @@
 package com.leo.crud.vendas.service;
 
+import com.leo.crud.vendas.dto.requests.persistence.ProductPersistenceRequestDTO;
+import com.leo.crud.vendas.dto.responses.persistence.ProductPersistenceResponseDTO;
 import com.leo.crud.vendas.entities.Product;
 import com.leo.crud.vendas.repositories.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,17 +16,19 @@ public class ProductsService {
     @Autowired
     ProductsRepository productsRepository;
 
-    public ProductsDTO findById(Long id){
+    public ProductPersistenceResponseDTO findById(Long id){
 
-
+        return null;
     }
 
-    public List<ProductsDTO> getAll(){
+    public List<ProductPersistenceResponseDTO> getAll(){
 
         List<Product> result = productsRepository.findAll();
 
-        List<ProductsDTO> productsDTOS = result.stream().map(x -> new ProductsDTO(x)).collect(Collectors.toUnmodifiableList());
-
-        return productsDTOS;
+        return result.stream().map(x -> new ProductPersistenceResponseDTO(
+                x.getExternalId(),
+                x.getName(),
+                x.getPrice()
+        )).toList();
     }
 }

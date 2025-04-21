@@ -15,7 +15,7 @@ public class User {
     private Long id;
 
     @Column(unique = true, nullable = false)
-    private String external_id;
+    private String externalId;
 
     @Column(nullable = false)
     private String name;
@@ -44,9 +44,9 @@ public class User {
         inverseJoinColumns = @JoinColumn(name = "sale_id"))
     private List<Sale> sales = new ArrayList<>();
 
-    public User(Long id, String external_id, String name, String email, String password) {
+    public User(Long id, String externalId, String name, String email, String password) {
         this.id = id;
-        this.external_id = external_id;
+        this.externalId = externalId;
         this.name = name;
         this.email = email;
         this.password = password;
@@ -63,12 +63,12 @@ public class User {
         this.id = id;
     }
 
-    public String getExternal_id() {
-        return external_id;
+    public String getExternalId() {
+        return externalId;
     }
 
-    public void setExternal_id(String external_id) {
-        this.external_id = external_id;
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
     }
 
     public String getName() {
@@ -109,5 +109,13 @@ public class User {
 
     public void setBanks(List<Bank> banks) {
         this.banks = banks;
+    }
+
+    public List<Sale> getSales() {
+        return sales;
+    }
+
+    public void setSales(List<Sale> sales) {
+        this.sales = sales;
     }
 }

@@ -1,5 +1,11 @@
 package com.leo.crud.vendas.service;
 
+import com.leo.crud.vendas.dto.requests.persistence.SalePersistenceRequestDTO;
+import com.leo.crud.vendas.dto.responses.agroups.NewSaleAgroup;
+import com.leo.crud.vendas.dto.responses.persistence.BankPersistenceResponseDTO;
+import com.leo.crud.vendas.dto.responses.persistence.ProductPersistenceResponseDTO;
+import com.leo.crud.vendas.dto.responses.persistence.SalePersistenceResponseDTO;
+import com.leo.crud.vendas.dto.responses.reports.SaleReportDTO;
 import com.leo.crud.vendas.repositories.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,21 +27,21 @@ public class SaleService {
     BankService bankService;
 
     @Transactional
-    public SaleRequestInsertDTO insert(SaleRequestInsertDTO saleRequestInsertDTO){
-
+    public SalePersistenceResponseDTO insert(SalePersistenceRequestDTO saleRequestInsertDTO){
+        return null;
     }
 
     @Transactional(readOnly = true)
-    public ReportSalesDTO reportSales(LocalDate initDate, LocalDate finalDate, Long idProduct) {
+    public SaleReportDTO reportSales(LocalDate initDate, LocalDate finalDate, Long idProduct) {
 
-
+        return null;
     }
 
-    public ResponseNewSaleDTO newSale(){
-        List<BankDTO> banks = bankService.getAll();
+    public NewSaleAgroup newSale(){
+        List<BankPersistenceResponseDTO> banks = bankService.getAll();
 
-        List<ProductsDTO> products = productsService.getAll();
+        List<ProductPersistenceResponseDTO> products = productsService.getAll();
 
-        return new ResponseNewSaleDTO(banks, products);
+        return new NewSaleAgroup(banks, products);
     }
 }

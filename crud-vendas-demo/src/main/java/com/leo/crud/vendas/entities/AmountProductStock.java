@@ -27,6 +27,9 @@ public class AmountProductStock {
         this.amount = amount;
     }
 
+    public AmountProductStock() {
+    }
+
     public Long getId() {
         return id;
     }

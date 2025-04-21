@@ -15,6 +15,9 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true, nullable = false)
+    private String externalId;
+
     private String name;
 
     private BigDecimal price;
@@ -22,13 +25,16 @@ public class Product {
     @ManyToMany(mappedBy = "products")
     private List<User> users = new ArrayList<>();
 
-    @OneToOne(mappedBy = "products")
+    @OneToOne(mappedBy = "product")
     private AmountProductStock amountProductStock;
 
     public Product(Long id, String name, BigDecimal price) {
         this.id = id;
         this.name = name;
         this.price = price;
+    }
+
+    public Product() {
     }
 
     public Long getId() {
@@ -69,5 +75,13 @@ public class Product {
 
     public void setAmountProductStock(AmountProductStock amountProductStock) {
         this.amountProductStock = amountProductStock;
+    }
+
+    public String getExternalId() {
+        return externalId;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
     }
 }

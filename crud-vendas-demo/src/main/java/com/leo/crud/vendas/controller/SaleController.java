@@ -1,5 +1,9 @@
 package com.leo.crud.vendas.controller;
 
+import com.leo.crud.vendas.dto.requests.persistence.SalePersistenceRequestDTO;
+import com.leo.crud.vendas.dto.responses.agroups.NewSaleAgroup;
+import com.leo.crud.vendas.dto.responses.persistence.SalePersistenceResponseDTO;
+import com.leo.crud.vendas.dto.responses.reports.SaleReportDTO;
 import com.leo.crud.vendas.service.SaleService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +21,14 @@ public class SaleController {
     SaleService saleService;
 
     @PostMapping
-    public ResponseEntity<SaleRequestInsertDTO> insert(@Valid @RequestBody SaleRequestInsertDTO saleRequestInsertDTO){
-        saleRequestInsertDTO = saleService.insert(saleRequestInsertDTO);
+    public ResponseEntity<SalePersistenceResponseDTO> insert(@Valid @RequestBody SalePersistenceRequestDTO saleRequestInsertDTO){
+        SalePersistenceResponseDTO salePersistenceResponseDTO = saleService.insert(saleRequestInsertDTO);
 
-        return ResponseEntity.ok(saleRequestInsertDTO);
+        return ResponseEntity.ok(salePersistenceResponseDTO);
     }
 
     @PostMapping(value = "/reportsales")
-    public ResponseEntity<ReportSalesDTO> reportSales(
+    public ResponseEntity<SaleReportDTO> reportSales(
             @RequestParam(name = "initDate")
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate initDate,
 
@@ -33,12 +37,12 @@ public class SaleController {
 
             @RequestParam(name = "productId") Long productId
     ) {
-        ReportSalesDTO report = saleService.reportSales(initDate, finalDate, productId);
+        SaleReportDTO report = saleService.reportSales(initDate, finalDate, productId);
         return ResponseEntity.ok(report);
     }
 
     @GetMapping(value = "/newsale")
-    public ResponseEntity<ResponseNewSaleDTO> newSale(){
+    public ResponseEntity<NewSaleAgroup> newSale(){
         return ResponseEntity.ok(saleService.newSale());
     }
 }

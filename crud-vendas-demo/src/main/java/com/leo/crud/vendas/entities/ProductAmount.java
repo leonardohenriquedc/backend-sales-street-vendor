@@ -31,6 +31,9 @@ public class ProductAmount {
         this.unit_price = unit_price;
     }
 
+    public ProductAmount() {
+    }
+
     public Integer getAmount() {
         return amount;
     }

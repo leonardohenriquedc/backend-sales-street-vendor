@@ -1,11 +1,14 @@
 package com.leo.crud.vendas.controller;
 
+import com.leo.crud.vendas.dto.requests.persistence.BankPersistenceRequestDTO;
+import com.leo.crud.vendas.dto.responses.persistence.BankPersistenceResponseDTO;
 import com.leo.crud.vendas.service.BankService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -16,27 +19,27 @@ public class BankController {
     BankService bankService;
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<BankDTO> getBankOfTheRespectiveAccount(@RequestParam Long id){
+    public ResponseEntity<BankPersistenceResponseDTO> getBankOfTheRespectiveAccount(@RequestParam Long id){
 
         return ResponseEntity.ok(bankService.findById(id));
     }
 
     @PostMapping(value = "/create")
-    public ResponseEntity<BankDTO> save(@RequestParam("name") String name, @RequestParam("keyPix") String pix, @RequestParam("file") MultipartFile file){
+    public ResponseEntity<BankPersistenceResponseDTO> save(@RequestParam("name") String name, @RequestParam("keyPix") String pix, @RequestParam("file") MultipartFile file) throws IOException {
 
-        CreateBankDTO dto = new CreateBankDTO();
+        BankPersistenceRequestDTO dto = new BankPersistenceRequestDTO(
+            name,
+            pix,
+            file.getBytes()
+        );
 
-        dto.setName(name);
-        dto.setKeyPix(pix);
-        dto.setImageQrCode(file);
-
-        BankDTO bankDTO = bankService.save(dto);
+        BankPersistenceResponseDTO bankDTO = bankService.save(dto);
 
         return ResponseEntity.ok(bankDTO);
     }
 
     @GetMapping
-    public ResponseEntity<List<BankDTO>> getAllBanks (){
+    public ResponseEntity<List<BankPersistenceResponseDTO>> getAllBanks (){
 
         return ResponseEntity.ok(bankService.getAll());
     }
