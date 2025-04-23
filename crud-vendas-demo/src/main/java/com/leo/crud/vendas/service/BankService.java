@@ -15,7 +15,7 @@ import java.util.Optional;
 public class BankService {
 
     @Autowired
-    BankRepository bankRepository;
+    private BankRepository bankRepository;
 
     public BankPersistenceResponseDTO findById(Long id){
 
@@ -29,10 +29,27 @@ public class BankService {
                     existsId.get().getKeyPix(),
                     existsId.get().getImgQrCode()
             );
-        }else {
-
-            throw new ResourceNotFound("Id not found");
         }
+
+        throw new ResourceNotFound("Id not found");
+    }
+
+    public BankPersistenceResponseDTO findByExternalId(String externalId){
+
+        Optional<Bank> existsId = bankRepository.findByExternalId(externalId);
+
+        if(existsId.isPresent()){
+
+            return new BankPersistenceResponseDTO(
+                    existsId.get().getExternalId(),
+                    existsId.get().getName(),
+                    existsId.get().getKeyPix(),
+                    existsId.get().getImgQrCode()
+            );
+        }
+
+        throw new ResourceNotFound("Id not found");
+
     }
 
     public BankPersistenceResponseDTO save(BankPersistenceRequestDTO dto) {
