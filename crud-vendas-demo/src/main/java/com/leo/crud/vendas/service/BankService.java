@@ -1,5 +1,6 @@
 package com.leo.crud.vendas.service;
 
+import com.leo.crud.vendas.dto.mirrors.entities.BankDTO;
 import com.leo.crud.vendas.dto.requests.persistence.BankPersistenceRequestDTO;
 import com.leo.crud.vendas.dto.responses.persistence.BankPersistenceResponseDTO;
 import com.leo.crud.vendas.entities.Bank;
@@ -17,17 +18,18 @@ public class BankService {
     @Autowired
     private BankRepository bankRepository;
 
-    public BankPersistenceResponseDTO findById(Long id){
+    public BankDTO findById(Long id){
 
-        Optional<Bank> existsId = bankRepository.findById(id);
+        Optional<Bank> result = bankRepository.findById(id);
 
-        if(existsId.isPresent()){
+        if(result.isPresent()){
 
-            return new BankPersistenceResponseDTO(
-                    existsId.get().getExternalId(),
-                    existsId.get().getName(),
-                    existsId.get().getKeyPix(),
-                    existsId.get().getImgQrCode()
+            return new BankDTO(
+                    result.get().getId(),
+                    result.get().getExternalId(),
+                    result.get().getName(),
+                    result.get().getKeyPix(),
+                    result.get().getImgQrCode()
             );
         }
 

@@ -1,5 +1,6 @@
 package com.leo.crud.vendas.service;
 
+import com.leo.crud.vendas.dto.mirrors.entities.ProductDTO;
 import com.leo.crud.vendas.dto.requests.persistence.ProductPersistenceRequestDTO;
 import com.leo.crud.vendas.dto.responses.persistence.ProductPersistenceResponseDTO;
 import com.leo.crud.vendas.entities.Product;
@@ -14,9 +15,14 @@ import java.util.stream.Collectors;
 public class ProductsService {
 
     @Autowired
-    ProductsRepository productsRepository;
+    private ProductsRepository productsRepository;
 
-    public ProductPersistenceResponseDTO findById(Long id){
+    public ProductDTO findById(Long id){
+
+        return null;
+    }
+
+    public ProductPersistenceResponseDTO findByExternalId(String id){
 
         return null;
     }
