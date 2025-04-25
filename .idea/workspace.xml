@@ -5,35 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8481c862-f461-4b84-8622-43db03705d8a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/BankPersistenceRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/UserPersistenceRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/responses/agroups/NewSaleAgroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/responses/persistence/BankPersistenceResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/crud vendas demo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/git_toolbox_blame.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/controller/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/crud-vendas-demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/crud-vendas-demo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/controller/SaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/controller/SaleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/mirrors/entities/BankDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/mirrors/entities/BankDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/BankPersistenceRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/UserPersistenceRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/responses/persistence/BankPersistenceDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/entities/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/entities/Bank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/entities/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/entities/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/entities/Sale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/service/BankService.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/service/BankService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/ProductPersistenceRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/ProductPersistenceRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/SalePersistenceRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/SalePersistenceRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/UserPersistenceRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/UserPersistenceRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/responses/persistence/BankPersistenceResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/responses/persistence/BankPersistenceResponseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/service/ProductsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/service/ProductsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/service/SaleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/service/SaleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/resources/import.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,9 +24,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
-        <option value="Class" />
         <option value="Interface" />
         <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -76,7 +56,7 @@
     &quot;git-widget-placeholder&quot;: &quot;refactoringDatabase&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/run/media/denver/CloudDenver/CloudDenver/Documentos/GITHUB/crud-vendas-demo&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.runner&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>
