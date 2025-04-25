@@ -1,18 +1,21 @@
 package com.leo.crud.vendas.entities;
 
+import com.leo.crud.vendas.validations.constraints.CharacterValidate;
 import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "tb_roles")
-public class Role {
+public class Role implements GrantedAuthority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @CharacterValidate(message = "Uma role precisa começar com o prefixo ROLE_", characters = "ROLE_")
     @Column(unique = true, nullable = false)
     private String role;
 
@@ -41,5 +44,10 @@ public class Role {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    @Override
+    public String getAuthority() {
+        return role;
     }
 }
