@@ -44,6 +44,13 @@ public class User {
         inverseJoinColumns = @JoinColumn(name = "sale_id"))
     private List<Sale> sales = new ArrayList<>();
 
+    @ManyToMany
+    @JoinTable(name = "tb_users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private List<Role> roles = new ArrayList<>();
+
     public User(Long id, String externalId, String name, String email, String password) {
         this.id = id;
         this.externalId = externalId;
@@ -117,5 +124,13 @@ public class User {
 
     public void setSales(List<Sale> sales) {
         this.sales = sales;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 }
