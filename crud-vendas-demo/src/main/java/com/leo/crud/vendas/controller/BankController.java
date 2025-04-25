@@ -19,9 +19,9 @@ public class BankController {
     BankService bankService;
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<BankPersistenceResponseDTO> getBankOfTheRespectiveAccount(@RequestParam Long id){
+    public ResponseEntity<BankPersistenceResponseDTO> getBankOfTheRespectiveAccount(@RequestParam String id){
 
-        return ResponseEntity.ok(bankService.findById(id));
+        return ResponseEntity.ok(bankService.findByExternalId(id));
     }
 
     @PostMapping(value = "/create")

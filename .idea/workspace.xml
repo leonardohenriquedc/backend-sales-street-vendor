@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8481c862-f461-4b84-8622-43db03705d8a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/crud-vendas-demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/crud-vendas-demo.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/ProductPersistenceRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/ProductPersistenceRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/SalePersistenceRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/SalePersistenceRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/UserPersistenceRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/UserPersistenceRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/responses/persistence/BankPersistenceResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/responses/persistence/BankPersistenceResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/service/ProductsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/service/ProductsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/service/SaleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/service/SaleService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
