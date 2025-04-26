@@ -3,20 +3,20 @@ package com.leo.crud.vendas.controller.handler.exceptions;
 import com.leo.crud.vendas.dto.errors.CustomError;
 import com.leo.crud.vendas.dto.errors.ParameterErrors;
 import com.leo.crud.vendas.exceptions.NotExistsResources;
+import com.leo.crud.vendas.exceptions.ResourceAlreadyExists;
 import com.leo.crud.vendas.exceptions.ResourceNotFound;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.Instant;
 
-@ControllerAdvice
+@org.springframework.web.bind.annotation.ControllerAdvice
 @RestControllerAdvice
-public class ControllerAdivice {
+public class ControllerAdvice {
 
     @ExceptionHandler(NotExistsResources.class)
     public ResponseEntity<CustomError> notExistsResource(NotExistsResources exception, HttpServletRequest request){
@@ -65,6 +65,20 @@ public class ControllerAdivice {
 
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<CustomError> illegalArugment(IllegalArgumentException exception, HttpServletRequest request) {
+
+        HttpStatus status = HttpStatus.NOT_ACCEPTABLE;
+
+        ParameterErrors parameterErrors = new ParameterErrors(
+                Instant.now(),
+                status.value(),
+                exception.getMessage(),
+                request.getRequestURI());
+
+        return ResponseEntity.status(status).body(parameterErrors);
+    }
+
+    @ExceptionHandler(ResourceAlreadyExists.class)
+    public ResponseEntity<CustomError> illegalArugment(ResourceAlreadyExists exception, HttpServletRequest request) {
 
         HttpStatus status = HttpStatus.NOT_ACCEPTABLE;
 
