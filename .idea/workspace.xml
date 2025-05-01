@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8481c862-f461-4b84-8622-43db03705d8a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/validations/ListNotNullValdiation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/validations/constraints/ListNotNull.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/controller/handler/exceptions/ControllerAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/controller/handler/exceptions/ControllerAdvice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/SalePersistenceRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/SalePersistenceRequestDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,19 +43,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.CrudVendasDemoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;refactoringDatabase&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/run/media/denver/CloudDenver/CloudDenver/Documentos/ESTUDOS/CURSOS/Java/exercicios/java.spring.professional/Exercicios/spring-boot-oauth2-jwt-demo&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CrudVendasDemoApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/run/media/denver/CloudDenver/CloudDenver/Documentos/ESTUDOS/CURSOS/Java/exercicios/java.spring.professional/Exercicios/spring-boot-oauth2-jwt-demo",
+    "settings.editor.selected.configurable": "settings.sync",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.leo.crud.vendas.entities" />

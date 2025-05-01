@@ -82,13 +82,9 @@ public class UserService implements UserDetailsService {
     public String login(UserAuthRequestDTO userAuthRequestDTO){
         UsernamePasswordAuthenticationToken authtoken = new UsernamePasswordAuthenticationToken(userAuthRequestDTO.email(), userAuthRequestDTO.password());
 
-        System.out.println("Este e o  authToken: " + authtoken.toString());
-
         Authentication auth = this.authenticationManager.authenticate(authtoken);
 
         String token = generatedHash.generationToken((User) auth.getPrincipal());
-
-        System.out.println("Este e o token " + token);
 
         return token;
     }

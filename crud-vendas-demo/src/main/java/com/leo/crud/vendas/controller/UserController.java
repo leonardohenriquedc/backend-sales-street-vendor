@@ -30,10 +30,7 @@ public class UserController {
     @PostMapping( value = "/login")
     public ResponseEntity<String> login(@RequestBody @Valid UserAuthRequestDTO userAuthRequestDTO){
 
-
         String token = userService.login(userAuthRequestDTO);
-
-        System.out.println("Este e o  token " + token);
 
         return ResponseEntity.ok(token);
 

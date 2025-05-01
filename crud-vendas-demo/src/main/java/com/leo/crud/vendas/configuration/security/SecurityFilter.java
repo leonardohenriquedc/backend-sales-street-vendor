@@ -44,13 +44,6 @@ public class SecurityFilter extends OncePerRequestFilter {
 
                 UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(subject, null, userDetails.getAuthorities());
 
-                //Depuração
-                List<Role> roles = (List<Role>) userDetails.getAuthorities();
-
-                System.out.println("Este são os componentes do token: " + userDetails.getUsername() + "\n agr as autorizações ");
-                roles.forEach(x -> System.out.println(x.getId() + " " + x.getRole()));
-                //----------------------
-
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             }
 
