@@ -54,7 +54,7 @@ public class UserService implements UserDetailsService {
         throw new ResourceNotFound("Id of the user not found");
     }
 
-    public UserDTO findBy(Long id){
+    public UserDTO findById(Long id){
 
         Optional<User> result = userRepository.findById(id);
 
