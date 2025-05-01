@@ -11,6 +11,7 @@ import com.leo.crud.vendas.exceptions.ResourceAlreadyExists;
 import com.leo.crud.vendas.exceptions.ResourceNotFound;
 import com.leo.crud.vendas.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -28,9 +29,11 @@ public class UserService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
-    AuthenticationManager authenticationManager;
+    @Lazy
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
-    @Autowired(required = true)
+    @Autowired
     GeneratedHash generatedHash;
 
     @Autowired
@@ -79,6 +82,8 @@ public class UserService implements UserDetailsService {
     public String login(UserAuthRequestDTO userAuthRequestDTO){
         UsernamePasswordAuthenticationToken authtoken = new UsernamePasswordAuthenticationToken(userAuthRequestDTO.email(), userAuthRequestDTO.password());
 
+        System.out.println("Este e o  authToken: " + authtoken.toString());
+
         Authentication auth = this.authenticationManager.authenticate(authtoken);
 
         String token = generatedHash.generationToken((User) auth.getPrincipal());
@@ -88,7 +93,7 @@ public class UserService implements UserDetailsService {
         return token;
     }
 
-    public UserPersistenceResponseDTO newUser(UserPersistenceRequestDTO userPersistenceRequestDTO) {
+    public String newUser(UserPersistenceRequestDTO userPersistenceRequestDTO) {
         if(userRepository.findByEmail(userPersistenceRequestDTO.email()) != null){
             throw new ResourceAlreadyExists("Recurso ja existe");
         }
@@ -111,11 +116,6 @@ public class UserService implements UserDetailsService {
 
         user = userRepository.save(user);
 
-        return new UserPersistenceResponseDTO(
-                user.getExternalId(),
-                user.getName(),
-                user.getEmail(),
-                user.getPassword()
-        );
+        return user.getExternalId();
     }
 }

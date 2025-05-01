@@ -5,24 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8481c862-f461-4b84-8622-43db03705d8a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/configuration/security/SecuirtyConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/configuration/security/SecurityFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/controller/handler/exceptions/ControllerAdvice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/mirrors/entities/RoleDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/UserAuthRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/exceptions/ResourceAlreadyExists.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/service/GeneratedHash.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/mer database.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/mer database.mwb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/mer database.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/mer database.mwb.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/controller/handler/exceptions/ControllerAdivice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/repositories/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/repositories/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/configuration/security/SecuirtyConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/configuration/security/SecuirtyConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/configuration/security/SecurityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/configuration/security/SecurityFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/controller/SaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/controller/SaleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/SalePersistenceRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/dto/requests/persistence/SalePersistenceRequestDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/service/RoleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/java/com/leo/crud/vendas/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/resources/application-test.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crud-vendas-demo/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/crud-vendas-demo/src/main/resources/import.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +33,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/6.4.3/spring-security-core-6.4.3.jar!/org/springframework/security/core/userdetails/UserDetails.class" root0="SKIP_INSPECTION" />
   </component>
   <component name="MavenRunner">
     <option name="jreName" value="21" />

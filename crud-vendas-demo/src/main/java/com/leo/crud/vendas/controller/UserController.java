@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.web.util.UriBuilder;
 
 import javax.validation.Valid;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 @RestController
 @RequestMapping(value = "/user")
@@ -36,9 +40,12 @@ public class UserController {
     }
 
     @PostMapping(value = "/new")
-    public ResponseEntity<UserPersistenceResponseDTO> newUser(@RequestBody @Valid UserPersistenceRequestDTO userPersistenceRequestDTO){
-        UserPersistenceResponseDTO userPersistenceResponseDTO = userService.newUser(userPersistenceRequestDTO);
+    public ResponseEntity newUser(@RequestBody @Valid UserPersistenceRequestDTO userPersistenceRequestDTO) throws URISyntaxException {
+        String externalID = userService.newUser(userPersistenceRequestDTO);
 
-        return ResponseEntity.ok(userPersistenceResponseDTO);
+        URI endereco = ServletUriComponentsBuilder
+                .fromCurrentContextPath().path("/user/login").buildAndExpand().toUri();
+
+        return ResponseEntity.created(endereco).build();
     }
 }

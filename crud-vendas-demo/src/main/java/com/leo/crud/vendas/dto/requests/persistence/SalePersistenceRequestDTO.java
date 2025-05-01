@@ -21,13 +21,12 @@ public record SalePersistenceRequestDTO(
         @NotNull(message = "O campo preço total não pode ser nulo")
         BigDecimal totalPrice,
 
-        @NotBlank(message = "O campo metodo de pagamento não pode ser nulo")
+        @NotNull(message = "O campo metodo de pagamento não pode ser nulo")
         Long paymentMethod,
 
         @NotNull(message = "O campo quantidade de produtos não pode ser nulo")
         Integer amountProducts,
 
-        @NotBlank(message = "A lista de produtos não pode ser vazia")
         List<ProductPersistenceRequestDTO> products
 ) {
 }

@@ -21,7 +21,7 @@ public class SaleController {
     SaleService saleService;
 
     @PostMapping
-    public ResponseEntity<SalePersistenceResponseDTO> insert(@Valid @RequestBody SalePersistenceRequestDTO saleRequestInsertDTO){
+    public ResponseEntity<SalePersistenceResponseDTO> insert(@RequestBody @Valid SalePersistenceRequestDTO saleRequestInsertDTO){
         SalePersistenceResponseDTO salePersistenceResponseDTO = saleService.insert(saleRequestInsertDTO);
 
         return ResponseEntity.ok(salePersistenceResponseDTO);
