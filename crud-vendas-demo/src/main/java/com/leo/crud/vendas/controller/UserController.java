@@ -9,10 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriBuilder;
 
@@ -27,8 +24,8 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @PostMapping( value = "/login")
-    public ResponseEntity<String> login(@RequestBody @Valid UserAuthRequestDTO userAuthRequestDTO){
+    @PostMapping(value = "/login")
+    public ResponseEntity<String> login(@RequestBody @Valid UserAuthRequestDTO userAuthRequestDTO) {
 
         String token = userService.login(userAuthRequestDTO);
 
@@ -44,5 +41,12 @@ public class UserController {
                 .fromCurrentContextPath().path("/user/login").buildAndExpand().toUri();
 
         return ResponseEntity.created(endereco).build();
+    }
+
+    @PutMapping(value = "/update")
+    public ResponseEntity<UserPersistenceResponseDTO> update(@RequestBody @Valid UserPersistenceRequestDTO userPersistenceRequestDTO){
+        UserPersistenceResponseDTO userPersistenceResponseDTO = userService.update(userPersistenceRequestDTO);
+
+        return ResponseEntity.ok(userPersistenceResponseDTO);
     }
 }

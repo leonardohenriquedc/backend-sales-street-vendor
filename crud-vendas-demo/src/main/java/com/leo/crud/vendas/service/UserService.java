@@ -114,4 +114,29 @@ public class UserService implements UserDetailsService {
 
         return user.getExternalId();
     }
+
+    public UserPersistenceResponseDTO update(UserPersistenceRequestDTO userPersistenceRequestDTO){
+        Optional<User> user = userRepository.findByExternalId(userPersistenceRequestDTO.id());
+
+        if (user.isEmpty()){
+            throw new ResourceNotFound("Usuario não existe");
+        }
+
+        String passwordEncoder = new BCryptPasswordEncoder().encode(userPersistenceRequestDTO.password());
+
+        User result = userRepository.getReferenceById(user.get().getId());
+
+        result.setName(userPersistenceRequestDTO.name());
+        result.setEmail(userPersistenceRequestDTO.email());
+        result.setPassword(passwordEncoder);
+
+        result = userRepository.save(result);
+
+        return new UserPersistenceResponseDTO(
+                result.getExternalId(),
+                result.getName(),
+                result.getEmail(),
+                result.getPassword()
+        );
+    }
 }
