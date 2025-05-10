@@ -139,4 +139,16 @@ public class UserService implements UserDetailsService {
                 result.getPassword()
         );
     }
+
+    public void delete(String id){
+        Optional<User> result = userRepository.findByExternalId(id);
+
+        User user = null;
+
+        if(result.isEmpty()){
+            throw new ResourceNotFound("Impossivel delete recurso inexistente");
+        }
+
+        userRepository.delete(user);
+    }
 }

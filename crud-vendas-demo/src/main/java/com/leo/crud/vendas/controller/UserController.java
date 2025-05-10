@@ -49,4 +49,11 @@ public class UserController {
 
         return ResponseEntity.ok(userPersistenceResponseDTO);
     }
+
+    @DeleteMapping(value = "/delete/{id}")
+    public ResponseEntity delete(@RequestParam String id){
+        userService.delete(id);
+
+        return ResponseEntity.ok().build();
+    }
 }
