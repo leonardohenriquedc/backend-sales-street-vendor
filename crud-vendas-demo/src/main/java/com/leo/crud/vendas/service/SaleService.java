@@ -37,7 +37,7 @@ public class SaleService {
         return null;
     }
 
-    public NewSaleAgroup newSale(){
+    public NewSaleAgroup getInfosNewSale(){
         List<BankPersistenceResponseDTO> banks = bankService.getAll();
 
         List<ProductPersistenceResponseDTO> products = productsService.getAll();

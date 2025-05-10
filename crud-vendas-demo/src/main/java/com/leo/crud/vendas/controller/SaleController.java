@@ -27,6 +27,7 @@ public class SaleController {
         return ResponseEntity.ok(salePersistenceResponseDTO);
     }
 
+    @Deprecated
     @PostMapping(value = "/reportsales")
     public ResponseEntity<SaleReportDTO> reportSales(
             @RequestParam(name = "initDate")
@@ -41,8 +42,8 @@ public class SaleController {
         return ResponseEntity.ok(report);
     }
 
-    @GetMapping(value = "/newsale")
+    @GetMapping(value = "/get-infos-new-sale")
     public ResponseEntity<NewSaleAgroup> newSale(){
-        return ResponseEntity.ok(saleService.newSale());
+        return ResponseEntity.ok(saleService.getInfosNewSale());
     }
 }
