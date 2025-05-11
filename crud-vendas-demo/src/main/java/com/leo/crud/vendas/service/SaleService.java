@@ -1,11 +1,13 @@
 package com.leo.crud.vendas.service;
 
+import com.leo.crud.vendas.dto.mirrors.entities.PaymentMethodDTO;
 import com.leo.crud.vendas.dto.requests.persistence.SalePersistenceRequestDTO;
 import com.leo.crud.vendas.dto.responses.agroups.NewSaleAgroup;
 import com.leo.crud.vendas.dto.responses.persistence.BankPersistenceResponseDTO;
 import com.leo.crud.vendas.dto.responses.persistence.ProductPersistenceResponseDTO;
 import com.leo.crud.vendas.dto.responses.persistence.SalePersistenceResponseDTO;
 import com.leo.crud.vendas.dto.responses.reports.SaleReportDTO;
+import com.leo.crud.vendas.entities.PaymentMethod;
 import com.leo.crud.vendas.repositories.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +28,9 @@ public class SaleService {
     @Autowired
     BankService bankService;
 
+    @Autowired
+    PaymentMethodService payemnts;
+
     @Transactional
     public SalePersistenceResponseDTO insert(SalePersistenceRequestDTO saleRequestInsertDTO){
         return null;
@@ -42,6 +47,8 @@ public class SaleService {
 
         List<ProductPersistenceResponseDTO> products = productsService.getAll();
 
-        return new NewSaleAgroup(banks, products);
+        List<PaymentMethodDTO> paymentMethod = payemnts.getAll();
+
+        return new NewSaleAgroup(banks, products, paymentMethod);
     }
 }

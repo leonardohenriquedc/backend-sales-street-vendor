@@ -21,6 +21,9 @@ public class PaymentMethod {
         this.method = method;
     }
 
+    public PaymentMethod() {
+    }
+
     public Long getId() {
         return id;
     }

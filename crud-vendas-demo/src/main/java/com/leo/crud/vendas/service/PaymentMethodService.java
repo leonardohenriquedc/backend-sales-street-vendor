@@ -7,6 +7,7 @@ import com.leo.crud.vendas.repositories.PaymentMethodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -26,5 +27,15 @@ public class PaymentMethodService {
         }
 
         throw new ResourceNotFound("Id of Payment Method not found");
+    }
+
+    public List<PaymentMethodDTO> getAll(){
+        List<PaymentMethod> result = paymentMethodRepository.findAll();
+
+        return result.stream().map(paymentMethod -> new PaymentMethodDTO(
+                paymentMethod.getId(),
+                paymentMethod.getMethod()
+                )
+        ).toList();
     }
 }
