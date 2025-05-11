@@ -12,6 +12,10 @@ public record ProductPersistenceRequestDTO(
         @NotBlank
         String name,
 
-        BigDecimal price
+        @NotNull
+        BigDecimal price,
+
+        @NotNull
+        Integer amount
 ) {
 }

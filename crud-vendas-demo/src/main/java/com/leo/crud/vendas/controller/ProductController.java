@@ -45,4 +45,11 @@ public class ProductController {
     public ResponseEntity<ProductPersistenceResponseDTO>updateProduct(@PathVariable String id, @RequestBody @Valid ProductPersistenceRequestDTO productPersistenceRequestDTO){
         return ResponseEntity.ok(productsService.updateProduct(id, productPersistenceRequestDTO));
     }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity deleteProduct(@PathVariable String id){
+        productsService.delete(id);
+
+        return ResponseEntity.ok().build();
+    }
 }

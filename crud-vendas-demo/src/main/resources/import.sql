@@ -4,6 +4,8 @@ INSERT INTO tb_users(external_id, name, email, password) values ('27c1a14fc8f75c
 
 INSERT INTO tb_products(external_id, name, price) values ('owvnjawjrbo', 'Palha Italiana', 8.60);
 
+INSERT INTO tb_amount_products_stock (amount, products_id) values (10, 1);
+
 INSERT INTO tb_banks(external_id, name, key_pix, img_qr_code) values ('fvonjkwnko', 'Itau', 'snkwbnkbwkno', null);
 
 INSERT INTO tb_roles(role) VALUES ('ROLE_SELLER');

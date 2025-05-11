@@ -25,7 +25,7 @@ public class Product {
     @ManyToMany(mappedBy = "products")
     private List<User> users = new ArrayList<>();
 
-    @OneToOne(mappedBy = "product")
+    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
     private AmountProductStock amountProductStock;
 
     public Product(Long id, String name, BigDecimal price) {

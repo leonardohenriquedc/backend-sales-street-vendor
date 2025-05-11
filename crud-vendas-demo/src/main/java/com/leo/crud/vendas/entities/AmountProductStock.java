@@ -27,6 +27,11 @@ public class AmountProductStock {
         this.amount = amount;
     }
 
+    public AmountProductStock(Integer amount) {
+        this.id = id;
+        this.amount = amount;
+    }
+
     public AmountProductStock() {
     }
 
