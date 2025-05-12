@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 public record ProductPersistenceRequestDTO(
 
-        String externalId,
+        String id,
 
         @NotBlank
         String name,

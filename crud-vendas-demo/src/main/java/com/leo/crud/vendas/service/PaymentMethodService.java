@@ -16,7 +16,7 @@ public class PaymentMethodService {
     @Autowired
     private PaymentMethodRepository paymentMethodRepository;
 
-    public PaymentMethodDTO findById(Long id){
+    protected PaymentMethodDTO getMirrorById(Long id){
         Optional<PaymentMethod> result = paymentMethodRepository.findById(id);
 
         if(result.isPresent()){

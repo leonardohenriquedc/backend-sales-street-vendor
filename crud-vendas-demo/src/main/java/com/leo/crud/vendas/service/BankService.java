@@ -18,9 +18,9 @@ public class BankService {
     @Autowired
     private BankRepository bankRepository;
 
-    public BankDTO findById(Long id){
+    protected BankDTO getMirrorBankByExternalId(String id){
 
-        Optional<Bank> result = bankRepository.findById(id);
+        Optional<Bank> result = bankRepository.findByExternalId(id);
 
         if(result.isPresent()){
 
@@ -33,7 +33,7 @@ public class BankService {
             );
         }
 
-        throw new ResourceNotFound("Id not found");
+        throw new ResourceNotFound("Bank Id not found");
     }
 
     public BankPersistenceResponseDTO findByExternalId(String externalId){

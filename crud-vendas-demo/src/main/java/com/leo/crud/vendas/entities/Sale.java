@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "tb_sales")
@@ -108,5 +109,17 @@ public class Sale {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Sale sale = (Sale) o;
+        return Objects.equals(amountProducts, sale.amountProducts) && Objects.equals(totalPrice, sale.totalPrice) && Objects.equals(dateSale, sale.dateSale) && Objects.equals(bank, sale.bank) && Objects.equals(paymentMethod, sale.paymentMethod) && Objects.equals(users, sale.users);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(amountProducts, totalPrice, dateSale, bank, paymentMethod, users);
     }
 }

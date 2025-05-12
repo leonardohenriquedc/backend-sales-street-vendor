@@ -28,9 +28,20 @@ public class ProductsService {
     @Autowired
     private GeneratedHash generatedHash;
 
-    public ProductDTO findById(Long id){
+    public ProductDTO getMirrorByExternalId(String id){
 
-        return null;
+        Optional<Product> result = productsRepository.findByExternalId(id);
+
+        if(result.isPresent()){
+            return new ProductDTO(
+                    result.get().getId(),
+                    result.get().getExternalId(),
+                    result.get().getName(),
+                    result.get().getPrice()
+            );
+        }
+
+        throw new ResourceNotFound("Recurso não existe");
     }
 
     public ProductPersistenceResponseDTO findByExternalId(String id){
