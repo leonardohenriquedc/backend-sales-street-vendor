@@ -8,7 +8,6 @@ import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 public record SalePersistenceRequestDTO(
@@ -24,7 +23,7 @@ public record SalePersistenceRequestDTO(
         BigDecimal totalPrice,
 
         @NotNull(message = "O campo metodo de pagamento não pode ser nulo")
-        Long paymentMethod,
+        Long paymentMethodId,
 
         @NotNull(message = "O campo quantidade de produtos não pode ser nulo")
         Integer amountProducts,

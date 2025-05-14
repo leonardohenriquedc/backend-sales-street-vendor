@@ -9,4 +9,6 @@ import java.util.Optional;
 public interface ProductAmountRepository extends JpaRepository<ProductAmount, ProductAmountKey> {
 
     Optional<ProductAmount> findBySaleIdAndProductId(Long saleId, Long productId);
+
+    Optional<ProductAmount> findBySaleId(Long id);
 }

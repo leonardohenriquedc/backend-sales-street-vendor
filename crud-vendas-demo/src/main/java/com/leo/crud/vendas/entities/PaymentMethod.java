@@ -2,6 +2,9 @@ package com.leo.crud.vendas.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "tb_payment_methods")
 public class PaymentMethod {
@@ -13,8 +16,8 @@ public class PaymentMethod {
     @Column(unique = true, nullable = false)
     private String method;
 
-    @OneToOne(mappedBy = "paymentMethod")
-    private Sale sale;
+    @OneToMany(mappedBy = "paymentMethod")
+    private List<Sale> sale = new ArrayList<>();
 
     public PaymentMethod(Long id, String method) {
         this.id = id;
@@ -38,5 +41,13 @@ public class PaymentMethod {
 
     public void setMethod(String method) {
         this.method = method;
+    }
+
+    public List<Sale> getSale() {
+        return sale;
+    }
+
+    public void setSale(List<Sale> sale) {
+        this.sale = sale;
     }
 }

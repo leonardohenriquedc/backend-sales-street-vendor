@@ -27,23 +27,15 @@ public class SaleController {
         return ResponseEntity.ok(salePersistenceResponseDTO);
     }
 
-    @Deprecated
-    @PostMapping(value = "/reportsales")
-    public ResponseEntity<SaleReportDTO> reportSales(
-            @RequestParam(name = "initDate")
-            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate initDate,
-
-            @RequestParam(name = "finalDate")
-            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate finalDate,
-
-            @RequestParam(name = "productId") Long productId
-    ) {
-        SaleReportDTO report = saleService.reportSales(initDate, finalDate, productId);
-        return ResponseEntity.ok(report);
-    }
-
     @GetMapping(value = "/get-infos-new-sale")
     public ResponseEntity<NewSaleAgroup> newSale(){
         return ResponseEntity.ok(saleService.getInfosNewSale());
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity deleteSale(@PathVariable String id){
+         saleService.delete(id);
+
+         return ResponseEntity.ok().build();
     }
 }

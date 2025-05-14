@@ -41,7 +41,7 @@ public class ProductsService {
             );
         }
 
-        throw new ResourceNotFound("Recurso não existe");
+        throw new ResourceNotFound("Produto não existe");
     }
 
     public ProductPersistenceResponseDTO findByExternalId(String id){

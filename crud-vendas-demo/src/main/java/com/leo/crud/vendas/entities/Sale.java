@@ -30,7 +30,7 @@ public class Sale {
     @JoinColumn(name = "bank_id")
     private Bank bank;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "payment_method_id", referencedColumnName = "id")
     private PaymentMethod paymentMethod;
 

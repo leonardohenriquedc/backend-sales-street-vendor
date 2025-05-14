@@ -1,6 +1,7 @@
 package com.leo.crud.vendas.repositories;
 
 import com.leo.crud.vendas.entities.Sale;
+import com.leo.crud.vendas.entities.User;
 import com.leo.crud.vendas.projections.SaleReportProjectionRecord;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface SaleRepository extends JpaRepository<Sale, Long> {
@@ -28,4 +30,6 @@ public interface SaleRepository extends JpaRepository<Sale, Long> {
             @Param("finalDate")LocalDate finalDate,
             @Param("idProduct")Long idProduct
     );
+
+    Optional<Sale> findByExternalId(String id);
 }
