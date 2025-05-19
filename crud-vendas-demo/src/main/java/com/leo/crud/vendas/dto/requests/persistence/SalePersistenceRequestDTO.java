@@ -12,6 +12,8 @@ import java.util.List;
 
 public record SalePersistenceRequestDTO(
 
+        String id,
+
         @DateNotExceeding(message = "A data não pode ser superior a data atual")
         @NotRetroactiveDate(message = "A data não pode ser retroativa em relação a data atual")
         LocalDate dateSale,

@@ -4,6 +4,7 @@ import com.leo.crud.vendas.entities.ProductAmount;
 import com.leo.crud.vendas.entities.ProductAmountKey;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ProductAmountRepository extends JpaRepository<ProductAmount, ProductAmountKey> {
@@ -11,4 +12,6 @@ public interface ProductAmountRepository extends JpaRepository<ProductAmount, Pr
     Optional<ProductAmount> findBySaleIdAndProductId(Long saleId, Long productId);
 
     Optional<ProductAmount> findBySaleId(Long id);
+
+    List<ProductAmount> findAllBySaleId(Long id);
 }

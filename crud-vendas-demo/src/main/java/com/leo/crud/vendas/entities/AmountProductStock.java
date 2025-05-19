@@ -41,7 +41,7 @@ public class AmountProductStock {
 
     public void setId(Long id) {
         this.id = id;
-    }
+    }  
 
     public Integer getAmount() {
         return amount;
