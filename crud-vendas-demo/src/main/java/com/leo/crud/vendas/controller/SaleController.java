@@ -38,4 +38,11 @@ public class SaleController {
 
          return ResponseEntity.ok().build();
     }
+
+    @PutMapping
+    public ResponseEntity<SalePersistenceResponseDTO> updatingSale(@RequestBody @Valid SalePersistenceRequestDTO salePersistenceRequestDTO){
+        saleService.update(salePersistenceRequestDTO);
+
+        return ResponseEntity.ok().build();
+    }
 }
